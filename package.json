@@ -1,0 +1,19 @@
+{
+  "name": "quotes_api",
+  "version": "1.0.0 Beta",
+  "description": "Random Quotes generator API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "GNNK71",
+  "license": "GNU General Public License v3.0",
+  "dependencies": {
+    "better-sqlite3": "^7.5.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "knex": "^1.0.5",
+    "nodemon": "^2.0.15"
+  }
+}

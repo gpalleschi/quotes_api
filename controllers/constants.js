@@ -1,0 +1,13 @@
+const DEFAULT_PORT = 35907; 
+const DB_PATH = './db/';
+const DB_FILENAME = 'quotes.SQLite3';
+
+// Languages
+const LANGUAGES = ['it','en'];
+
+ module.exports = {
+     DEFAULT_PORT: DEFAULT_PORT,
+     DB_PATH: DB_PATH,
+     DB_FILENAME: DB_FILENAME,
+     LANGUAGES: LANGUAGES,
+};
