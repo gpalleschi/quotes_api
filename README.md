@@ -13,7 +13,7 @@ Quote API RESTful Node.js based Multilingual (Italian, English) is a free, open 
 ## Random quote
 
 ```HTTP
-GET /versions
+GET /randomquote
 ```
 
 Return a random quote.
