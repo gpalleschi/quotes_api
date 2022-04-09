@@ -3,7 +3,7 @@ const DB_PATH = './db/';
 const DB_FILENAME = 'quotes.SQLite3';
 
 // Languages
-const LANGUAGES = ['it','en'];
+const LANGUAGES = ['it','en','es'];
 
  module.exports = {
      DEFAULT_PORT: DEFAULT_PORT,
