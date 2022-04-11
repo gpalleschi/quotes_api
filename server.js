@@ -30,7 +30,7 @@ app.get('/',(req,res)=>{
 // Random Quote - Optional Parameter language (en, it) - Default Value en
 app.get('/randomquote',async (req,res)=>{
 	const { language } = req.query;
-	const ret = Check.checkParam('language', language, Constants.LANGUAGES, false);
+	const ret = Check.checkParam('language', language, Constants.LANGUAGES, true);
 
 	if ( ret.error ) {
            res.status(401).json(Utility.formatErr(401,'random',ret.error));
@@ -51,11 +51,35 @@ app.get('/randomquote',async (req,res)=>{
 	}
 });
 
+app.get('/authors',async (req,res)=>{
+	const { language, search } = req.query;
+	const ret = Check.checkParam('language', language, Constants.LANGUAGES, true);
+
+	if ( ret.error ) {
+           res.status(401).json(Utility.formatErr(401,'random',ret.error));
+	   return;
+	} 
+
+	if ( Db.connection() === null ) {
+           res.status(401).json(Utility.formatErr(401,'random','Error in DB Connection.'));
+	   return;
+	}
+
+	const retAuthors = await Db.getAuthors(language, search);
+
+	if ( retAuthors.error === null ) {
+	   res.status(200).json(retAuthors.data);		
+	} else {
+           res.status(401).json(retAuthors.error);
+	}
+});
+
 // Return all languages managed
 app.get('/languages',(req,res)=>{
 	res.send({'languages' : Constants.LANGUAGES});
 });
 
+// TODO Get All quotes for an Author
 
 // Return info about quotes for a specific language
 app.get('/info',async (req,res)=>{

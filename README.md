@@ -5,6 +5,7 @@ Quote API RESTful Node.js based Multilingual (Italian, English and Spanish) is a
 
 - [Get Random Quote](#Randomquote)  
 - [Info](#Info)  
+- [Authors](#Authors)  
 - [Error Managment](#Error-Managment)
 
 
@@ -23,7 +24,7 @@ Return a random quote.
 
 | Param     | Type     | Description   | Mandatory                                                                                                                                                                                                                                                                                                                          |
 | :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |---|
-| language | `String`    | Language Code (ex. en, it, ...) | Yes | 
+| language | `String`    | Language Code (ex. en, it, es) | Yes | 
 
 **Response**
 
@@ -62,7 +63,7 @@ Return info about total quotes and authors.
 
 | Param     | Type     | Description   | Mandatory                                                                                                                                                                                                                                                                                                                          |
 | :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |---|
-| language | `String`    | Language Code (ex. en, pt, it, ...) | Yes | 
+| language | `String`    | Language Code (ex. en, it, es) | Yes | 
 
 **Response**  
 
@@ -87,6 +88,47 @@ Return info about total quotes and authors.
   "authors": 717
 }
 ```
+
+<hr/>
+
+## Authors
+
+```HTTP
+GET /Info
+```
+
+Return list of Authors with relative total quotes.
+
+**Query parameters**  
+
+| Param     | Type     | Description   | Mandatory                                                                                                                                                                                                                                                                                                                          |
+| :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |---|
+| language | `String`    | Language Code (ex. en, it, es) | Yes | 
+| language | `String`    | ) | No | 
+
+**Response**  
+
+```ts
+{
+    // Author Name
+    author: string
+    // Total quotes loaded
+    totQuotes: number
+}
+```
+**Examples**
+
+`http://localhost:35907/authors?language=it&search=%OSCAR%`
+
+```
+[
+  {
+    "author": "Oscar Wilde",
+    "totQuotes": 91
+  }
+]
+```
+
 <hr/>
 
 ## Error Managment

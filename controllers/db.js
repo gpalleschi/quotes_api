@@ -62,8 +62,36 @@ const randomQuote = async (language='en', tags=[]) => {
 	return ret;
 }
 
+const getAuthors = async (language='en', search='%%', tags=[]) => {
+      let ret = { error: null,
+                  data: null};
+      try { 
+          await db.transaction(async trx => {
+          await trx.select('author')
+             .count('quote as totQuotes')
+             .from('quotes')
+             .where('language','=',language)
+             .whereLike('author',search)
+             .whereRaw('LOWER(author) LIKE LOWER(\'' + search + '\')')
+             .groupBy('author')
+             .orderByRaw('totQuotes desc')
+             .then( resQuotes => {
+		    ret.data = resQuotes;
+                   })
+             .catch(err => {
+		    ret.error = Utility.formatErr(401,'getAuthors',err.code + ' : ' + err.message);
+                   })
+          })
+
+        } catch (err) {
+	  ret.error =  Utility.formatErr(401,'getAuthors',err.code + ' : ' + err.message);
+        }                  
+	return ret;
+}
+
 module.exports = {
      connection: connection,
      randomQuote: randomQuote,
-     infoQuotes: infoQuotes
+     infoQuotes: infoQuotes,
+     getAuthors: getAuthors
 };
