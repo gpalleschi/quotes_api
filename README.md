@@ -6,6 +6,7 @@ Quote API RESTful Node.js based Multilingual (Italian, English and Spanish) is a
 - [Get Random Quote](#Randomquote)  
 - [Info](#Info)  
 - [Authors](#Authors)  
+- [Quotes](#Quotes)
 - [Error Managment](#Error-Managment)
 
 
@@ -104,7 +105,7 @@ Return list of Authors with relative total quotes.
 | Param     | Type     | Description   | Mandatory                                                                                                                                                                                                                                                                                                                          |
 | :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |---|
 | language | `String`    | Language Code (ex. en, it, es) | Yes | 
-| language | `String`    | ) | No | 
+| search | `String`    | String to research Author in like sql format (ex. %Goethe%) | No | 
 
 **Response**  
 
@@ -127,6 +128,82 @@ Return list of Authors with relative total quotes.
     "totQuotes": 91
   }
 ]
+```
+
+<hr/>
+
+## Quotes  
+
+```HTTP
+GET /Info
+```
+
+Return list of quotes of an author.
+
+**Query parameters**  
+
+| Param     | Type     | Description   | Mandatory                                                                                                                                                                                                                                                                                                                          |
+| :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |---|
+| language | `String`    | Language Code (ex. en, it, es) | Yes | 
+| author | `String`    | String to research Author in like sql format (ex. %Goethe%) | Yes | 
+| limit | `Numeric`    | Limit quotes extracted (Default value is 10) | No | 
+
+**Response**  
+
+```ts
+{
+    // Total quotes founded
+    totQuotes: number
+    quotes: array<{
+        // Quote
+        quote: string
+        // Author name
+        author: string
+        // tags
+        tags: string      
+    }>
+}
+```
+**Examples**
+
+`http://localhost:35907/quotes?language=en&author=%Goethe%`
+
+```
+{
+  "totQuotes": 6,
+  "quotes": [
+    {
+      "quote": "If you're walking down the right path and you're willing to keep walking, eventually you'll make progress.",
+      "author": "Barack Obama",
+      "tags": "famous"
+    },
+    {
+      "quote": "Focusing your life solely on making a buck shows a poverty of ambition. It asks too little of yourself. And it will leave you unfulfilled.",
+      "author": "Barack Obama",
+      "tags": "famous"
+    },
+    {
+      "quote": "Change will not come if we wait for some other person or some other time. We are the ones weve been waiting for. We are the change that we seek.",
+      "author": "Barack Obama",
+      "tags": "famous"
+    },
+    {
+      "quote": "Change will not come if we wait for some other person or some other time. We are the ones weve been waiting for. We are the change that we seek.",
+      "author": "Barack Obama",
+      "tags": "famous"
+    },
+    {
+      "quote": "Focusing your life solely on making a buck shows a poverty of ambition. It asks too little of yourself. And it will leave you unfulfilled.",
+      "author": "Barack Obama",
+      "tags": "famous"
+    },
+    {
+      "quote": "If you're walking down the right path and you're willing to keep walking, eventually you'll make progress.",
+      "author": "Barack Obama",
+      "tags": "famous"
+    }
+  ]
+}
 ```
 
 <hr/>

@@ -1,6 +1,7 @@
 const DEFAULT_PORT = 35907; 
 const DB_PATH = './db/';
 const DB_FILENAME = 'quotes.SQLite3';
+const LIMIT_QUOTES = 10
 
 // Languages
 const LANGUAGES = ['it','en','es'];
@@ -10,4 +11,5 @@ const LANGUAGES = ['it','en','es'];
      DB_PATH: DB_PATH,
      DB_FILENAME: DB_FILENAME,
      LANGUAGES: LANGUAGES,
+     LIMIT_QUOTES: LIMIT_QUOTES
 };
