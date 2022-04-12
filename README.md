@@ -3,7 +3,7 @@ Quote API RESTful Node.js based Multilingual (Italian, English and Spanish) is a
 
 ## API Reference
 
-- [Get Random Quote](#Randomquote)  
+- [Get Random Quote](#Random)  
 - [Info](#Info)  
 - [Authors](#Authors)  
 - [Quotes](#Quotes)
@@ -12,7 +12,7 @@ Quote API RESTful Node.js based Multilingual (Italian, English and Spanish) is a
 
 <hr/>
 
-## Random quote
+## Random
 
 ```HTTP
 GET /randomquote
