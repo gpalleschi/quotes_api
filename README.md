@@ -9,7 +9,6 @@ Quote API RESTful Node.js based Multilingual (Italian, English and Spanish) is a
 - [Quotes](#Quotes)
 - [Error Managment](#Error-Managment)
 
-
 <hr/>
 
 ## Random
@@ -95,7 +94,7 @@ Return info about total quotes and authors.
 ## Authors
 
 ```HTTP
-GET /Info
+GET /authors
 ```
 
 Return list of Authors with relative total quotes.
@@ -135,7 +134,7 @@ Return list of Authors with relative total quotes.
 ## Quotes  
 
 ```HTTP
-GET /Info
+GET /quotes
 ```
 
 Return list of quotes of an author.
