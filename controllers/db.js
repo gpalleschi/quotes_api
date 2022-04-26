@@ -13,7 +13,7 @@ const connection = () => {
                               });
         db.raw('select 1+1 as result').catch(err => {
 	       return null;
-             }).then(console.log('Db Connection to file ' + dbFileName + ' OK.'));
+             }).then(console.log('Db Connection OK.'));
        return db;
 }
 

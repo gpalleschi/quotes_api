@@ -2,10 +2,11 @@
   "name": "quotes_api",
   "version": "1.3.0 Beta",
   "description": "Random Quotes generator API",
-  "main": "index.js",
+  "main": "/api/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "vercel dev",
+    "deploy" : "vercel deploy --prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "GNNK71",
   "license": "GNU General Public License v3.0",

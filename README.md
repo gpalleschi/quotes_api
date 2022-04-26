@@ -14,7 +14,7 @@ Quote API RESTful Node.js based Multilingual (Italian, English and Spanish) is a
 ## Random
 
 ```HTTP
-GET /randomquote
+GET /api/randomquote
 ```
 
 Return a random quote.
@@ -40,7 +40,7 @@ Return a random quote.
 ```
 **Examples**
 
-`http://localhost:35907/randomquote?language=en`
+`http://localhost:35907/api/randomquote?language=en`
 
 ```
 {
@@ -54,7 +54,7 @@ Return a random quote.
 ## Info
 
 ```HTTP
-GET /Info
+GET /api/Info
 ```
 
 Return info about total quotes and authors.
@@ -79,7 +79,7 @@ Return info about total quotes and authors.
 ```
 **Examples**
 
-`http://localhost:35907/info?language=en`
+`http://localhost:35907/api/info?language=en`
 
 ```
 {
@@ -94,7 +94,7 @@ Return info about total quotes and authors.
 ## Authors
 
 ```HTTP
-GET /authors
+GET /api/authors
 ```
 
 Return list of Authors with relative total quotes.
@@ -118,7 +118,7 @@ Return list of Authors with relative total quotes.
 ```
 **Examples**
 
-`http://localhost:35907/authors?language=it&search=%OSCAR%`
+`http://localhost:35907/api/authors?language=it&search=%OSCAR%`
 
 ```
 [
@@ -134,7 +134,7 @@ Return list of Authors with relative total quotes.
 ## Quotes  
 
 ```HTTP
-GET /quotes
+GET /api/quotes
 ```
 
 Return list of quotes of an author.
@@ -165,7 +165,7 @@ Return list of quotes of an author.
 ```
 **Examples**
 
-`http://localhost:35907/quotes?language=en&author=%Goethe%`
+`http://localhost:35907/api/quotes?language=en&author=%Goethe%`
 
 ```
 {
