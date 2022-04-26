@@ -1,5 +1,5 @@
 const DEFAULT_PORT = 35907; 
-const DB_PATH = '../db/';
+const DB_PATH = 'db/';
 const DB_FILENAME = 'quotes.SQLite3';
 const LIMIT_QUOTES = 10
 
