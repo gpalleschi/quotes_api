@@ -214,7 +214,9 @@ Return list of quotes of an author.
 {
     // Language code
     error: number,
+    // Function Name
     function: string,
+    // Description error
     description: string
 }
 ```    
