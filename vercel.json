@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/randomquote.js": {
-      "includeFiles": "db/quotes.SQLite3"
+      "includeFiles": "db/**"
     }
   }
 }
