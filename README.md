@@ -165,7 +165,7 @@ Return list of quotes of an author.
 ```
 **Examples**
 
-`http://localhost:35907/api/quotes?language=en&author=%Goethe%`
+`http://localhost:35907/api/quotes?language=en&author=%Obama%`
 
 ```
 {
