@@ -5,7 +5,7 @@
   "main": "/api/index.js",
   "scripts": {
     "start": "vercel dev",
-    "deploy" : "vercel deploy --prod",
+    "deploy": "vercel deploy --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "GNNK71",
