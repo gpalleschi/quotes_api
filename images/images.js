@@ -1,8 +1,56 @@
 export const images = [
-{ image: "2.jpg",
-  
-  
-
+{ "name": "1.jpg",
+  "top": "30%",
+  "left": "50%",
+  "font-size": "36px",
+  "traslatex": "-50%",
+  "traslatey": "-50%",
 },
-
+{ "name": "2.jpg",
+  "top": "30%",
+  "left": "50%",
+  "font-size": "36px",
+  "traslatex": "-50%",  
+  "traslatey": "-60%",  
+},
+{ "name": "3.jpg",
+  "top": "25%",
+  "left": "50%",
+  "font-size": "36px",
+  "traslatex": "-50%",  
+  "traslatey": "-70%",  
+  "tag": "na"
+},
+{ "name": "4.jpg",
+  "top": "25%",
+  "left": "50%",
+  "font-size": "36px",
+  "traslatex": "-50%",  
+  "traslatey": "-70%",  
+  "tag": "na"
+},
+{ "name": "5.jpg",
+  "top": "30%",
+  "left": "50%",
+  "font-size": "36px",
+  "traslatex": "-50%",  
+  "traslatey": "-60%",  
+  "tag": "na"
+},
+{ "name": "6.jpg",
+  "top": "25%",
+  "left": "50%",
+  "font-size": "36px",
+  "traslatex": "-50%",  
+  "traslatey": "-70%",  
+  "tag": "na"
+},
+{ "name": "7.jpg",
+  "top": "25%",
+  "left": "50%",
+  "font-size": "36px",
+  "traslatex": "-50%",  
+  "traslatey": "-70%",  
+  "tag": "na"
+},
 ];

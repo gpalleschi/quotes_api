@@ -4,6 +4,7 @@ Quote API RESTful Node.js based Multilingual (Italian, English and Spanish) is a
 ## API Reference
 
 - [Get Random Quote](#Random)  
+- [Get Random Quote Image](#RandomImage)  
 - [Info](#Info)  
 - [Authors](#Authors)  
 - [Quotes](#Quotes)
@@ -49,6 +50,33 @@ Return a random quote.
   "tags": "famous"
 }
 ```
+<hr/>
+
+## RandomImage
+
+```HTTP
+GET /api/randomimage
+```
+
+Return a random image with a quote.
+
+**Query parameters**  
+
+
+| Param     | Type     | Description   | Mandatory                                                                                                                                                                                                                                                                                                                          |
+| :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |---|
+| language | `String`    | Language Code (ex. en, it, es) | Yes | 
+
+**Response**
+
+An image in html format.
+
+**Examples**
+
+`http://localhost:35907/api/randomimage?language=en`
+
+
+<img src="./images/ExampleRandomImage.png" alt="ExampleRandomImage" style="height: 30%; width:30%;"/>
 <hr/>
 
 ## Info

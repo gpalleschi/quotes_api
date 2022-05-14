@@ -2,6 +2,7 @@ const Constants = require('../controllers/constants');
 const Db = require('../controllers/db');
 const Check = require('../controllers/check');
 const Utility = require('../controllers/utility');
+import * as data from '../images/images.js';
 
 // Random Quote - Optional Parameter language (en, it) - Default Value en
 export default async function handler (req, res) {
@@ -29,10 +30,11 @@ export default async function handler (req, res) {
 	//    const imageBuffer = fs.readFileSync('./image/toSend.jpg')
 	//    res.setHeader('Content-Type', 'image/jpg')
         //    res.send(imgToSnd)
-	res.status(200).send('<div style="font-size:32px; font-weight: bold;">' +
-	                     '<img src="../images/2.jpg" alt="1" style="width:100%">' +
-			     '<p style="position: absolute;  top: 30%; left: 50%; transform: translate(-50%, -50%);">\"' + retRandom.data[0].quote + '\"<br><br>'+ retRandom.data[0].author + '</p>' +
-	                     '</div>');
+	   const image = data.images[Math.floor(Math.random() * data.images.length)];
+	   res.status(200).send('<div style="font-size:' + image['font-size'] + '; font-weight: bold;">' +
+	                        '<img src="../images/' + image['name'] + '" alt="1" style="width:100%">' +
+			        '<p style="position: absolute;  top: ' + image.top + '; left: ' + image.left + '; transform: translate(' + image.traslatex + ', ' + image.traslatey + ');">\"' + retRandom.data[0].quote + '\"<br><br>'+ retRandom.data[0].author + '</p>' +
+	                        '</div>');
 	} else {
            res.status(401).json(retRandom.error);
 	}

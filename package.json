@@ -1,6 +1,6 @@
 {
   "name": "quotes_api",
-  "version": "1.5.0 Beta",
+  "version": "1.6.0 Beta",
   "description": "Random Quotes generator API",
   "main": "/api/index.js",
   "scripts": {
