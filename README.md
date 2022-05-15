@@ -66,6 +66,7 @@ Return a random image with a quote.
 | Param     | Type     | Description   | Mandatory                                                                                                                                                                                                                                                                                                                          |
 | :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |---|
 | language | `String`    | Language Code (ex. en, it, es) | Yes | 
+| newmode | `String`    | If present and its value is different from no show random image from https://random.imagecdn.app | No | 
 
 **Response**
 
