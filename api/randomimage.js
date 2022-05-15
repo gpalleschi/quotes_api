@@ -30,9 +30,10 @@ export default async function handler (req, res) {
 	//    const imageBuffer = fs.readFileSync('./image/toSend.jpg')
 	//    res.setHeader('Content-Type', 'image/jpg')
         //    res.send(imgToSnd)
-	   const image = data.images[Math.floor(Math.random() * data.images.length)];
-	   res.status(200).send('<div style="font-size:' + image['font-size'] + '; font-weight: bold;">' +
-	                        '<img src="../images/' + image['name'] + '" alt="1" style="width:100%">' +
+	//    const image = data.images[Math.floor(Math.random() * data.images.length)];
+	   const image = data.images[19];
+	   res.status(200).send('<div style="font-size:' + image['font-size'] + '; font-weight: bold; font-style:italic;">' +
+	                        '<img src="../images/' + image['name'] + '" alt="1" style="width:100%; opacity:' + image['opacity'] + '">' +
 			        '<p style="position: absolute;  top: ' + image.top + '; left: ' + image.left + '; transform: translate(' + image.traslatex + ', ' + image.traslatey + ');">\"' + retRandom.data[0].quote + '\"<br><br>'+ retRandom.data[0].author + '</p>' +
 	                        '</div>');
 	} else {
