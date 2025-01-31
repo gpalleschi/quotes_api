@@ -11,10 +11,10 @@
   "author": "GNNK71",
   "license": "GNU General Public License v3.0",
   "dependencies": {
-    "better-sqlite3": "^7.5.0",
+    "better-sqlite3": "^11.8.1",
     "cors": "^2.8.5",
-    "express": "^4.17.3",
-    "knex": "^1.0.5",
-    "nodemon": "^2.0.15"
+    "express": "^4.21.2",
+    "knex": "^3.1.0",
+    "nodemon": "^3.1.9"
   }
 }
