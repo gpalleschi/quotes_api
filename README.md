@@ -1,5 +1,5 @@
 # quote_api
-Quote API RESTful Node.js based Multilingual (Italian, English and Spanish) is a free, open source quote api to get random quote. Quotes are loaded on sqlite3 DB. 
+Quote API RESTful Node.js based Multilingual (Italian, English and Spanish) is a free, open source quote api to get random quote. Quotes are loaded on sqlite3 DB. Actually is hosted on [Vercel](https://quotes-api-three.vercel.app/api/).   
 
 ## API Reference
 
