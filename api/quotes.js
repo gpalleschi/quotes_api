@@ -1,33 +1,33 @@
-const Constants = require('../controllers/constants');
-const Db = require('../controllers/db');
-const Check = require('../controllers/check');
-const Utility = require('../controllers/utility');
+import Constants from '../controllers/constants.js';
+import Db        from '../controllers/db.js';
+import {checkParam, checkNumeric }     from '../controllers/check.js';
+import {formatErr}   from '../controllers/utility.js';
 
 export default async function handler (req, res) {
 	const { language, author, limit } = req.query;
 	let ret = null;
 
-	ret = Check.checkParam('language', language, Constants.LANGUAGES, true);
+	ret = checkParam('language', language, Constants.LANGUAGES, true);
 	if ( ret.error ) {
-           res.status(401).json(Utility.formatErr(401,'quotes',ret.error));
+           res.status(401).json(formatErr(401,'quotes',ret.error));
 	   return;
 	} 
 
-	ret = Check.checkParam('author', author, [], true);
+	ret = checkParam('author', author, [], true);
 	if ( ret.error ) {
-           res.status(401).json(Utility.formatErr(401,'quotes',ret.error));
+           res.status(401).json(formatErr(401,'quotes',ret.error));
 	   return;
 	}
 
 	if ( limit ) {
-	   if ( !Check.checkNumeric(limit) ) {
-	      res.status(400).json(Utility.formatErr(401,'quotes','Error limit not numeric.'));
+	   if ( !checkNumeric(limit) ) {
+	      res.status(400).json(formatErr(401,'quotes','Error limit not numeric.'));
 	      return;   	
    	   }
 	}
 
 	if ( Db.connection() === null ) {
-           res.status(401).json(Utility.formatErr(401,'quotes','Error in DB Connection.'));
+           res.status(401).json(formatErr(401,'quotes','Error in DB Connection.'));
 	   return;
 	}	
 

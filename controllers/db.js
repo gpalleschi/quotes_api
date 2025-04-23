@@ -1,12 +1,13 @@
-const Constants = require('./constants');
-const Utility = require('./utility');
+import Constants from './constants.js';
+import { formatErr } from './utility.js';
+import knex from 'knex';
 
 let db = null;
 
-const connection = () => {
+export const connection = () => {
 	const dbFileName = Constants.DB_PATH + Constants.DB_FILENAME;
 	if ( db ) return db;
-	db = require('knex')({ client: 'better-sqlite3',
+	db = knex({ client: 'better-sqlite3',
                                connection: {
 					    filename: dbFileName
                                      }
@@ -17,7 +18,7 @@ const connection = () => {
        return db;
 }
 
-const infoQuotes = async (language, tags=[]) => {
+export const infoQuotes = async (language, tags=[]) => {
       let ret = { error: null,
                   data: null};
       try { 
@@ -28,18 +29,18 @@ const infoQuotes = async (language, tags=[]) => {
 		    ret.data = resInfo;
                    })
              .catch(err => {
-		    ret.error = Utility.formatErr(401,'infoQuotes',err.code + ' : ' + err.message);
+		    ret.error = formatErr(401,'infoQuotes',err.code + ' : ' + err.message);
                    })
           })
 
         } catch (err) {
-	  ret.error =  Utility.formatErr(401,'infoQuotes',err.code + ' : ' + err.message);
+	  ret.error =  formatErr(401,'infoQuotes',err.code + ' : ' + err.message);
         }                  
 	return ret;
 }
 
 
-const randomQuote = async (language='en', tags=[]) => {
+export const randomQuote = async (language='en', tags=[]) => {
       let ret = { error: null,
                   data: null};
       try { 
@@ -52,17 +53,17 @@ const randomQuote = async (language='en', tags=[]) => {
 		    ret.data = resQuotes;
                    })
              .catch(err => {
-		    ret.error = Utility.formatErr(401,'randomQuote',err.code + ' : ' + err.message);
+		    ret.error = formatErr(401,'randomQuote',err.code + ' : ' + err.message);
                    })
           })
 
         } catch (err) {
-	  ret.error =  Utility.formatErr(401,'randomQuote',err.code + ' : ' + err.message);
+	  ret.error =  formatErr(401,'randomQuote',err.code + ' : ' + err.message);
         }                  
 	return ret;
 }
 
-const getAuthors = async (language='en', search='%%', tags=[]) => {
+export const getAuthors = async (language='en', search='%%', tags=[]) => {
       let ret = { error: null,
                   data: null
                 };
@@ -80,17 +81,17 @@ const getAuthors = async (language='en', search='%%', tags=[]) => {
 		    ret.data = resQuotes;
                    })
              .catch(err => {
-		    ret.error = Utility.formatErr(401,'getAuthors',err.code + ' : ' + err.message);
+		    ret.error = formatErr(401,'getAuthors',err.code + ' : ' + err.message);
                    })
           })
 
         } catch (err) {
-	  ret.error =  Utility.formatErr(401,'getAuthors',err.code + ' : ' + err.message);
+	  ret.error =  formatErr(401,'getAuthors',err.code + ' : ' + err.message);
         }                  
 	return ret;
 }
 
-const getQuotes = async (language, author, limit=Constants.LIMIT_QUOTES, tags=[]) => {
+export const getQuotes = async (language, author, limit=Constants.LIMIT_QUOTES, tags=[]) => {
       let ret = { error: null,
                   data: { totQuotes: 0,
                           quotes: []
@@ -110,21 +111,13 @@ const getQuotes = async (language, author, limit=Constants.LIMIT_QUOTES, tags=[]
                       if ( j+1 >= limit ) break;
                    }})
              .catch(err => {
-		    ret.error = Utility.formatErr(401,'getQuotes',err.code + ' : ' + err.message);
+		    ret.error = formatErr(401,'getQuotes',err.code + ' : ' + err.message);
                    })
           })
 
       } catch (err) {
-	  ret.error =  Utility.formatErr(401,'getQuotes',err.code + ' : ' + err.message);
+	  ret.error =  formatErr(401,'getQuotes',err.code + ' : ' + err.message);
       }                  
 
 	return ret;
 }
-
-module.exports = {
-     connection: connection,
-     randomQuote: randomQuote,
-     infoQuotes: infoQuotes,
-     getAuthors: getAuthors,
-     getQuotes: getQuotes
-};

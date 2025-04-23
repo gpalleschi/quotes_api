@@ -1,6 +1,7 @@
 {
   "name": "quotes_api",
-  "version": "1.7.0",
+  "version": "1.7.1",
+  "type": "module",
   "description": "Random Quotes generator API",
   "main": "/api/index.js",
   "scripts": {
@@ -11,10 +12,10 @@
   "author": "GNNK71",
   "license": "GNU General Public License v3.0",
   "dependencies": {
-    "better-sqlite3": "^11.8.1",
+    "better-sqlite3": "^11.9.1",
     "cors": "^2.8.5",
-    "express": "^4.21.2",
+    "express": "^5.1.0",
     "knex": "^3.1.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.10"
   }
 }

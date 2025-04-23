@@ -1,6 +1,4 @@
-const Constants = require('./constants');
-
-const checkNumeric = ( value ) => {
+export const checkNumeric = ( value ) => {
 	let ret = true
 	if ( typeof value != 'undefined' ) {
 	  if ( !isNaN(value) ) {
@@ -13,7 +11,7 @@ const checkNumeric = ( value ) => {
 	return ret;
 }
 
-const checkParam = (name, value, values=[], mandatory=false) => {
+export const checkParam = (name, value, values=[], mandatory=false) => {
 	const ret = { error: null};
 
 	if ( typeof value === 'undefined' ) {
@@ -29,8 +27,3 @@ const checkParam = (name, value, values=[], mandatory=false) => {
 	}	
 	return ret;
 }
-
-module.exports = {
-     checkParam: checkParam,
-     checkNumeric: checkNumeric
-};
