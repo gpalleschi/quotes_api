@@ -66,7 +66,7 @@ Return a random image with a quote.
 | Param     | Type     | Description   | Mandatory                                                                                                                                                                                                                                                                                                                          |
 | :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |---|
 | language | `String`    | Language Code (ex. en, it, es) | Yes | 
-| newmode | `String`    | If present and its value is different from no show random image from https://random.imagecdn.app | No | 
+| newmode | `String`    | If present and its value is different from no show random image from https://pixabay.com/
 
 **Response**
 
@@ -252,8 +252,8 @@ Return list of quotes of an author.
 
 ### Prerequisites  
 
-* Node v16.13.1 or upper
-* npm  v7.19.1 or upper
+* Node v22.14.0 or upper
+* npm  v11.3.0 or upper
 
 ### Built With  
 * [Visual Code Editor](https://code.visualstudio.com)  
