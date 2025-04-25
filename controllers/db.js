@@ -1,5 +1,6 @@
 import Constants from './constants.js';
 import { formatErr } from './utility.js';
+import { name, version } from '../package.json';
 import knex from 'knex';
 
 let db = null;
@@ -26,7 +27,12 @@ export const infoQuotes = async (language, tags=[]) => {
           await trx.raw("select language, count(distinct quote) as quotes, count(distinct author) as authors from quotes where language = '" + language + "' group by language")
             //  .where('language','=',language)
              .then( resInfo => {
-		    ret.data = resInfo;
+		    ret.data = {
+                  "version" : version,
+                  "language" : resInfo.language,
+                  "quotes": resInfo.quotes,
+                  "authors": resInfo.authors 
+                };
                    })
              .catch(err => {
 		    ret.error = formatErr(401,'infoQuotes',err.code + ' : ' + err.message);
