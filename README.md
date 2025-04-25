@@ -102,6 +102,8 @@ Return info about total quotes and authors.
 
 ```ts
 {
+    // version
+    version: string
     // Language code
     language: string
     // Total quotes loaded
@@ -116,6 +118,7 @@ Return info about total quotes and authors.
 
 ```
 {
+  "version": "1.7.2",
   "language": "en",
   "quotes": 1746,
   "authors": 717
