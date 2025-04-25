@@ -58,7 +58,7 @@ Return a random quote.
 GET /api/randomimage
 ```
 
-Return a random image with a quote.
+Return a random image with a quote and its author (To generate random image use pixabay service).
 
 **Query parameters**  
 
@@ -66,7 +66,6 @@ Return a random image with a quote.
 | Param     | Type     | Description   | Mandatory                                                                                                                                                                                                                                                                                                                          |
 | :-------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |---|
 | language | `String`    | Language Code (ex. en, it, es) | Yes | 
-| newmode | `String`    | If present and its value is different from no show random image from https://pixabay.com/
 
 **Response**
 
@@ -76,8 +75,13 @@ An image in html format.
 
 `http://localhost:35907/api/randomimage?language=en`
 
-
-<img src="./images/ExampleRandomImage.png" alt="ExampleRandomImage" style="height: 30%; width:30%;"/>
+```
+{
+    "url": "https://pixabay.com/get/g6e739078013913a6cc494f4fa619b28b40d3b74f8d631c9fa8454a20654f6a1cbf45b4117d180dd8ad0789664ca946d5cee9224be3de79b4c620d5bdafbf2179_640.jpg",
+    "author": "Frida Kahlo",
+    "quote": "Nada dura para siempre… por eso quiero que seas mi nada."
+}
+```
 <hr/>
 
 ## Info
