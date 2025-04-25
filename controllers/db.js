@@ -1,6 +1,6 @@
 import Constants from './constants.js';
 import { formatErr } from './utility.js';
-import { name, version } from '../package.json';
+
 import knex from 'knex';
 
 let db = null;
@@ -28,7 +28,7 @@ export const infoQuotes = async (language, tags=[]) => {
             //  .where('language','=',language)
              .then( resInfo => {
 		    ret.data = {
-                  "version" : version,
+                  "version" : "1.7.2",
                   "language" : resInfo.language,
                   "quotes": resInfo.quotes,
                   "authors": resInfo.authors 
