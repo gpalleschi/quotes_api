@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     // Reading image Defining the text font
 
     if (retRandom.error === null) {
-        console.log(process.env.PIXABAY_KEY);
+        console.log('Pixabay_key' + process.env.PIXABAY_KEY);
         const url = `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=blue+sea&image_type=photo&image_type=photo`;
         try {
             const res2 = await fetch(url);
