@@ -1,6 +1,7 @@
 
 // constants.js
 const Constants = {
+  VERSION : "1.7.3",
   DEFAULT_PORT: 35907,
   DB_PATH: 'db/',
   DB_FILENAME: 'quotes.SQLite3',

@@ -27,12 +27,11 @@ export const infoQuotes = async (language, tags=[]) => {
           await trx.raw("select language, count(distinct quote) as quotes, count(distinct author) as authors from quotes where language = '" + language + "' group by language")
             //  .where('language','=',language)
              .then( resInfo => {
-		    ret.data = {
-                  "version" : "1.7.2",
-                  "language" : resInfo.language,
-                  "quotes": resInfo.quotes,
-                  "authors": resInfo.authors 
-                };
+                  const newData = [{}];
+                  newData[0] = { "version" : Constants.VERSION,
+                                 ...resInfo[0]
+                  };
+                  ret.data = newData;
                    })
              .catch(err => {
 		    ret.error = formatErr(401,'infoQuotes',err.code + ' : ' + err.message);
