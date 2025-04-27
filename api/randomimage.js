@@ -2,7 +2,6 @@ import Constants from '../controllers/constants.js';
 import {connection, randomQuote} from '../controllers/db.js';
 import {checkParam} from '../controllers/check.js';
 import {formatErr} from '../controllers/utility.js';
-import * as data from '../images/images.js';
 
 // Random Quote - Optional Parameter language (en, it) - Default Value en
 export default async function handler(req, res) {
@@ -27,10 +26,11 @@ export default async function handler(req, res) {
     const retRandom = await randomQuote(language);
 
     // Reading image Defining the text font
-
     if (retRandom.error === null) {
-        console.log('Pixabay_key' + process.env.PIXABAY_KEY);
-        const url = `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=blue+sea&image_type=photo&image_type=photo`;
+
+        const randomIdxTP = Math.floor(Math.random() * Constants.TYPE_PHOTOS.length);
+
+        const url = `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${Constants.TYPE_PHOTOS[randomIdxTP]}&image_type=photo&image_type=photo`;
         try {
             const res2 = await fetch(url);
             if (!res2.ok) {
@@ -45,7 +45,6 @@ export default async function handler(req, res) {
             }
 
             const randomIndex = Math.floor(Math.random() * data.hits.length);
-            // Prendo la largeImageURL del primo risultato
             const webformatURL = data
                 .hits[randomIndex]
                 .webformatURL;
@@ -60,27 +59,6 @@ export default async function handler(req, res) {
                         .data[0]
                         .quote
                 });
-
-            // TODO: Delete
-            // Quote centered in the image :                         ` <div style="
-            // position: relative;     width: 100%;     max-width: 800px;     aspect-ratio:
-            // 16/9;     background-image: url('${webformatURL}');     background-size:
-            // cover;     background-position: center;     overflow: hidden; ">   <div
-            // style="       content: '';       position: absolute;       top: 0; left: 0;
-            // width: 100%; height: 100%;       background-color: rgba(0,0,0,0.4);
-            // z-index: 1;   "></div>   <p style="       position: absolute;       top: 50%;
-            // left: 50%;       transform: translate(-50%, -50%);       margin: 0;
-            // padding: 0 20px;       color: #fff;       font-size: 40px;       font-weight:
-            // bold;       font-style: italic;       text-align: center;       line-height:
-            // 1.3;       z-index: 2;   ">
-            // “${retRandom.data[0].quote}”<br><br>${retRandom.data[0].author}   </p>
-            // </div>`                          '<div style="font-size:40px; font-weight:
-            // bold; font-style:italic;"><img                          src="' + webformatURL
-            // + '" alt="1" style="width:100%; opacity:0.4"><p
-            // style="position: ' + 'absolute;  top: 30%; left: 50%; transform:
-            // translate(-50%, -50%);">\"' + retRandom.data[0].quote + '\"<br><br>' +
-            // retRandom.data[0].author + '</p></div>'                     );
-
         } catch (err) {
             // Gestione errore (network, parsing, no hits, ecc.)
             console.error('Errore durante il fetch:', err.message);
