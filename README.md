@@ -69,7 +69,16 @@ Return a random image with a quote and its author (To generate random image use 
 
 **Response**
 
-An image in html format.
+```ts
+{
+    // url image
+    url: string
+    // Author name
+    author: string
+    // Quote
+    quote: string
+}
+```
 
 **Examples**
 
