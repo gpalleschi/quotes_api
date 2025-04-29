@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
         const randomIdxTP = Math.floor(Math.random() * Constants.TYPE_PHOTOS.length);
 
-        const url = `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${Constants.TYPE_PHOTOS[randomIdxTP]}&image_type=photo&image_type=photo`;
+        const url = `https://pixabay.com/api/?key=${process.env.PIXABAY_KEY}&q=${Constants.TYPE_PHOTOS[randomIdxTP]}&image_type=photo&image_type=photo&orientation=horizontal`;
         try {
             const res2 = await fetch(url);
             if (!res2.ok) {
