@@ -52,6 +52,8 @@ export default async function handler(req, res) {
                 .status(200)
                 .send({
                     "url": webformatURL,
+                    "width" : data.hits[randomIndex].webformatWidth,
+                    "height" : data.hits[randomIndex].webformatHeight,
                     "author": retRandom
                         .data[0]
                         .author,

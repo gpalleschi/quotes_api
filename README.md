@@ -73,6 +73,10 @@ Return a random image with a quote and its author (To generate random image use 
 {
     // url image
     url: string
+    // width image
+    width : number
+    // height image
+    height : number
     // Author name
     author: string
     // Quote
@@ -87,6 +91,8 @@ Return a random image with a quote and its author (To generate random image use 
 ```
 {
     "url": "https://pixabay.com/get/g6e739078013913a6cc494f4fa619b28b40d3b74f8d631c9fa8454a20654f6a1cbf45b4117d180dd8ad0789664ca946d5cee9224be3de79b4c620d5bdafbf2179_640.jpg",
+    "width" : 640,
+    "height" : 426,
     "author": "Frida Kahlo",
     "quote": "Nada dura para siempre… por eso quiero que seas mi nada."
 }
